@@ -55,9 +55,9 @@ module absoluter(input wire [15:0] x, output wire [15:0] out1, output wire out_s
 endmodule
 
 module first (input wire [15:0] out1, input wire sel_first, output wire [15:0] out2);
-    reg [15:0] c;
+
     reg [15:0] d;
-    reg [15:0] e;
+
     reg [15:0] f;
     reg [15:0] g;
     reg [15:0] h;
