@@ -34,7 +34,7 @@ module tt_um_alipi_aprox_sigmoid (
         end
 
         else begin
-            if(ena && ) begin y <= out3x; io_ena<=8'b00000001;end
+            if(ena ) begin y <= out3x; io_ena<=8'b00000001;end
             
             else y<= 0; io_ena<=8'b00000000;
         end
