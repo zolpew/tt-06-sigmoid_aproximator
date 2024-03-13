@@ -11,7 +11,7 @@ module tt_um_alipi_aprox_sigmoid (
 );  
 
         wire [15:0] X = {ui_in,uio_in};
-        wire [15:0] y;
+        reg [15:0] y;
 
 
 
@@ -25,9 +25,23 @@ module tt_um_alipi_aprox_sigmoid (
         first u1 (.out1(out1x),.sel_first(out_selx) ,.out2(out2x));
         mux u2 (.sel2(out_selx), .out2(out2x) ,.out3(out3x));
 
-        assign y = out3x;
+
+    always@(posedge clk or negedge rst_n)begin
+        if(!rst_n)begin
+            y <= 0;    
+        end
+
+        else begin
+            if(ena) y <= out3x;
+        end
+    end
+
+    
+   
         assign uo_out = y[15:8];
         assign uio_out = y[7:0];
+
+        
 
  
 
