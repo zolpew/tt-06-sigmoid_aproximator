@@ -11,7 +11,7 @@ module tt_um_alipi_aprox_sigmoid (
 );  
 
         wire [15:0] X = {ui_in,uio_in};
-        reg [7:0] io_ena = 8'b00000000;
+        reg [7:0] io_ena = 0;
         
         reg [15:0] y;
 
@@ -34,9 +34,9 @@ module tt_um_alipi_aprox_sigmoid (
         end
 
         else begin
-            if(ena ) begin y <= out3x; io_ena<=8'b00000001;end
+            if(ena ) begin y <= out3x; io_ena<=0;end
             
-            else begin y<= 0; io_ena<=8'b00000000;end
+            else begin y<= 0; io_ena<=0;end
         end
     end
 
