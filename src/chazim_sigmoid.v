@@ -1,49 +1,4 @@
 
-module testbench_sigmoid;
-    reg [15:0] X;
-    reg [7:0] ui_in;
-    wire [7:0] uo_out;
-    reg [7:0] uio_in;
-    wire [7:0] uio_out;
-    reg ena;
-    reg clk;
-    reg rst_n;
-
-    
-
-    
-
-
-    alipi_aprox_sigmoid t1 (.ui_in(ui_in), .uo_out(uo_out), .uio_in(uio_in), .uio_out(uio_out), .ena(ena), .clk(clk), .rst_n(rst_n));
-
-    initial begin
-        $dumpfile("chazim_sigmoid.vcd");
-        $dumpvars(0,testbench_sigmoid);
-        #10
-        X = 16'b00000010_10000000;
-        ui_in = X[15:8];
-        uio_in = X[7:0];
-        #10
-        X = 16'b11111110_10000000;
-        ui_in = X[15:8];
-        uio_in = X[7:0];
-        #10
-        $finish;
-
-        
-
-
-    end
-
-endmodule
-    
-
-
-
-
-
-
-
 module alipi_aprox_sigmoid (
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
